@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/howto", to: "static_pages#howto"
   get "/signup", to: "users#new"
-  
+  resources :users
   get "up" => "rails/health#show", as: :rails_health_check
 
 end

@@ -18,7 +18,11 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt", "~> 3.1.7"
+gem "bcrypt"
+gem 'bootstrap-sass',  '3.4.1'
+gem 'sprockets-rails', '3.4.2'
+gem 'sassc-rails',     '2.1.2'
+gem "mutex_m", "~> 0.3.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -57,7 +61,12 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'capybara',                 '3.38.0'
+  gem 'guard',                    '2.18.0'
+  gem 'guard-minitest',           '2.4.6'
+  gem 'minitest',                 '5.18.0'
+  gem 'minitest-reporters',       '1.6.0'
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'selenium-webdriver',       '4.8.3'
+  gem 'webdrivers',               '5.2.0'
 end
