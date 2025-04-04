@@ -20,7 +20,7 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt"
 gem 'bootstrap-sass',  '3.4.1'
-gem 'sprockets-rails', '3.4.2'
+gem 'sprockets-rails', '3.5.2'
 gem 'sassc-rails',     '2.1.2'
 gem "mutex_m", "~> 0.3.0"
 
