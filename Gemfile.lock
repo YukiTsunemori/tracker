@@ -188,7 +188,7 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.18.0)
-    minitest-reporters (1.6.0)
+    minitest-reporters (1.7.1)
       ansi
       builder
       minitest (>= 5.0)
@@ -448,7 +448,7 @@ DEPENDENCIES
   jbuilder
   kamal
   minitest (= 5.18.0)
-  minitest-reporters (= 1.6.0)
+  minitest-reporters (= 1.7.1)
   mutex_m (~> 0.3.0)
   propshaft
   puma (>= 5.0)
