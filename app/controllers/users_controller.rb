@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash.now[:success] = "Welcome to the Tracker!"
+      flash[:success] = "Welcome to the Tracker!"
       redirect_to user_url(@user)
     else
       render "new", status: :unprocessable_entity
