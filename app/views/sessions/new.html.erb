@@ -2,15 +2,15 @@
   <main class="form-signin w-100 m-auto">
     <form>
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <%= form_with(url: login_path, scope: :session) do |f| %>
+      <div class="row">
+        <%= f.label :Email %>
+        <%= f.email_field :email, class: "form_control" %>
+      </div>
+      <div class="row">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form_control" %>
 
-      <div class="">
-        <label for="floatingInput">Email address</label>
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      </div>
-      <div class="">
-        <label for="Password">Password</label>
-        <input type="password" class="form-control" id="Password" placeholder="Password">
-      </div>
 
       <div class="form-check text-start my-3">
         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
@@ -18,7 +18,8 @@
           Remember me
         </label>
       </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+        <%= f.submit "Log In", class: "btn btn-primary" %>
+        <% end %>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017-2023</p>
     </form>
   </main>
