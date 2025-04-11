@@ -1,0 +1,7 @@
+ <p style="color: black;">
+  logged_in?: <%= logged_in? %><br>
+  current_user: <%= current_user&.email || "なし" %><br>
+  session[:user_id]: <%= session[:user_id] || "nil" %><br>
+  cookies[:user_id]: <%= cookies[:user_id] || "nil" %><br>
+  cookies[:remember_token]: <%= cookies[:remember_token] || "nil" %>
+</p>

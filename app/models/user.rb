@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  # @remember_tokenにアクセスできるようにする。
+  # DBのカラムではないので、DBに保存もしない
+
+
   # callback関数 => ユーザーをDBへ保存する前にemail属性を強制的に小文字へ変換する。
   # selfは現在のユーザーを指す。
   before_save { self.email = email.downcase } 
@@ -39,6 +43,11 @@ class User < ApplicationRecord
 
   # 渡されたトークンがDB内のダイジェストと一致したらtrueを返す
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
   end
 end

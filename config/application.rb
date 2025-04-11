@@ -20,4 +20,6 @@ module Tracker
     config.time_zone = 'Tokyo'
     config.assets.enabled = true
   end
+
+
 end

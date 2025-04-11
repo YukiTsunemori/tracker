@@ -1,24 +1,25 @@
-<header class="p-3 fixed-top text-bg-dark">
+<header class="p-3 fixed-top text-bg-dark"> 
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-3 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          <li><%= link_to "Home", root_url, class: "text-white"%></li>
+          <li><%= link_to "About", about_url, class: "text-white"%></li>
+          <li><%= link_to "How to", howto_url, class: "text-white"%></li>
+          <li><%= link_to "Contact", contact_url, class: "text-white"%></li>
+          
         </ul>
 
         <div class="text-end">
           <% if logged_in? %>
             <div class="dropdown">
               <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                User
+                <%= user_name %>
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item"><%= link_to "Profile Setting", current_user %></a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item"><%= link_to "Log out", logout_path, method: :delete %></a></li>
+                <li><a class="dropdown-item"><%= link_to "Log out", logout_path,
+                       data: { "turbo-method": :delete } %></a></li>
               </ul>
             </div>
           <% else %>
