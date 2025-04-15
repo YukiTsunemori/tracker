@@ -1,15 +1,7 @@
 require "test_helper"
 
 class WorkspaceTest < ActiveSupport::TestCase
-  # def setup
-  #   @user = users(:michael)
-  #   # このコードは慣習的に正しくない
-    
+  # test "the truth" do
+  #   assert true
   # end
-
-  # test "should be valid" do
-  #   assert @workspace.valid?
-  # end
-
-  
 end
