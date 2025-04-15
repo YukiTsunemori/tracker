@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :workspaces
+
   attr_accessor :remember_token
   # @remember_tokenにアクセスできるようにする。
   # DBのカラムではないので、DBに保存もしない
@@ -12,7 +14,8 @@ class User < ApplicationRecord
   #　正規表現を定数へ代入。以下、Emailのvalidationでformatで使用する。
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
 
   has_secure_password
   # => 1. ハッシュ化したパスワードをDB内のカラム、password_digestに保存できる。
