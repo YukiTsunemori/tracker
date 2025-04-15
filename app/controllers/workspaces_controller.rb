@@ -1,5 +1,4 @@
 class WorkspacesController < ApplicationController
-  
   def index
     if current_user
       @workspaces = Workspace.joins(:user).select("users.name as creator, workspaces.name")
@@ -10,9 +9,7 @@ class WorkspacesController < ApplicationController
   end
 
   def new
-    # @workspace = Workspace.new
   end
-  # binding.irb
 
   def create
     @workspace = Workspace.new(workspace_params)
@@ -25,7 +22,7 @@ class WorkspacesController < ApplicationController
       participant.user_id = current_user.id
       participant.save
       flash[:success] = "Created new Workspace!"
-      
+      # binding.irb
       redirect_to '/index'
     else
       render "new", status: :unprocessable_entity

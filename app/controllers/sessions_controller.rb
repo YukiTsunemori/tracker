@@ -9,8 +9,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       reset_session
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
-      # binding.irb
-      # remember user
       log_in user
       redirect_to user
     else

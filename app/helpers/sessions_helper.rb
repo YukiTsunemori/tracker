@@ -61,4 +61,6 @@ module SessionsHelper
     @name = @current_user.name
   end
 
+
+
 end
