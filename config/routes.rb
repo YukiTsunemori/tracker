@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # get    "create",   to: "workspaces#new"
   resources :workspaces
   
-  get "up" => "rails/health#show", as: :rails_health_check
+  # posts controller
+  get "posts",       to: "posts#index"
+  get "posts/new",   to: "posts#new"
+  resources :posts
 
 end
