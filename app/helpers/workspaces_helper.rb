@@ -1,11 +1,12 @@
 module WorkspacesHelper
 
+  def current_user_id
+  current_user.id
+  end
+
   def exist?
-    if user_id = session[:user_id]
-      @workspace_exist = Workspace.where(user_id: user_id)
-     else
-      return false
-    end
+    @workspace_exist ||= Workspace.where(user_id: current_user_id)
+    return @workspace_exist.exists?
   end
 
 
