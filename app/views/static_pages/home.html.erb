@@ -8,13 +8,10 @@
       新しいworkspacesを作成するか、既存のworkspaceに参加しましょう。
     </p>
     <div class="d-inline-flex gap-2 mb-5">      
-        <%= link_to "New workspace", new_workspace_path, class: "btn btn-primary btn-lg" %>
-        <% if exist? %>
-        <%= link_to "Index workspaces", index_path, class: "btn btn-primary btn-lg" %>
-        <% else %>
-        <p>@workspace object is null</p>
-        <% end %>
-       
+        <%= link_to "New workspace", new_workspace_path,
+        class: "btn btn-primary btn-lg" %>
+        <%= link_to "Index workspaces", index_path,
+        class: "btn btn-primary btn-lg" if exist?%>
     </div>
   </div>
 </div>

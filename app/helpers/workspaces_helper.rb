@@ -1,15 +1,12 @@
 module WorkspacesHelper
-  include SessionsHelper
-  # binding.irb
-
-  def current_workspace
-    user_id = current_user.id
-    @workspaces = Workspace.where(id: user_id) if current_user
-  end
-
 
   def exist?
-    return !@workspaces.nil?
+    if user_id = session[:user_id]
+      @workspace_exist = Workspace.where(user_id: user_id)
+     else
+      return false
+    end
   end
-  # binding.irb
+
+
 end

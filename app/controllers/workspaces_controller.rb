@@ -1,7 +1,9 @@
 class WorkspacesController < ApplicationController
   def index
     if current_user
-      @workspaces = Workspace.joins(:user).select("users.name as creator, workspaces.name")
+      user_id = session[:user_id]
+      # binding.irb
+      @workspaces = Workspace.joins(:user).select("users.name as creator, workspaces.name").where(user_id: user_id)
       # binding.irb
     else
       
@@ -9,6 +11,7 @@ class WorkspacesController < ApplicationController
   end
 
   def new
+    
   end
 
   def create

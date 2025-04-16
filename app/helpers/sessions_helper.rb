@@ -1,11 +1,11 @@
 module SessionsHelper
-
+  # include WorspacesHelper
   # 渡されたユーザーでログインする
   def log_in(user)
     session[:user_id] = user.id
     # session[:session_token] = user.session_token
   end
-
+  
   # 永続的セッションのためにユーザーをデータベースに記憶する
   def remember(user)
     user.remember
@@ -28,6 +28,7 @@ module SessionsHelper
       end
     end
   end
+  # binding.irb
   # ユーザーIDをユーザーIDのセッションを代入した結果がTrueであれば、
   # IDを用いてUserオブジェクトをカレントユーザーへ代入。
   # そうでなければ、もし暗号化されたユーザーIDがCookiesへ代入しTrueとなれば、
@@ -60,7 +61,5 @@ module SessionsHelper
   def user_name
     @name = @current_user.name
   end
-
-
 
 end
