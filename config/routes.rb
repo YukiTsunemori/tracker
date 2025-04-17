@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   # workspaces contoroller
   get    "index",    to: "workspaces#index"
-  # get    "create",   to: "workspaces#new"
   resources :workspaces
   
   # posts controller

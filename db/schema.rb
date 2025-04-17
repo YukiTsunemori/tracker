@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_16_160012) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_17_110110) do
   create_table "participants", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "workspace_id", null: false
@@ -29,6 +29,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_16_160012) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index ["workspace_id"], name: "index_posts_on_workspace_id"
+  end
+
+  create_table "reply_messages", force: :cascade do |t|
+    t.text "reply_content"
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_reply_messages_on_post_id"
+    t.index ["user_id"], name: "index_reply_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +64,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_16_160012) do
   add_foreign_key "participants", "workspaces"
   add_foreign_key "posts", "users"
   add_foreign_key "posts", "workspaces"
+  add_foreign_key "reply_messages", "posts"
+  add_foreign_key "reply_messages", "users"
   add_foreign_key "workspaces", "users"
 end
