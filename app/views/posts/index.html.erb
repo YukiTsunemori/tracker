@@ -8,8 +8,9 @@
         <strong>Updated at: </strong> <%= post.updated_at.strftime("%Y-%m-%d %H:%M") %><br>
         <strong>Created at: </strong> <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
         <div>
-        <%# binding.irb %>
+        
         <%= link_to "Edit post", edit_post_path(post), class: "btn btn-primary mt-3" %>
+        <% %>
         </div>
       </li>
     <% end %>

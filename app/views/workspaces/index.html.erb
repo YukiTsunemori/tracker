@@ -4,9 +4,10 @@
         <%= image_tag('person-workspace.svg', width: 100, height: 100) %>
         <li><%= "Name: #{w.name}" %></li>
         <li><%= "Organizer: #{w.creator}" %></li>
-        <p>---------------------------------------</p>
+        <li><%= "ID: #{w.id}" %></li>
        </ol>
+       
+       <%= link_to "workspace", workspace_path(w.id), class: "btn btn-primary mt-3"  %>
+       <p>---------------------------------------</p>
     <% end %>
-    <%# link_to "workspace", workspace_path  %>
-    
 </div>

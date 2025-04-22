@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.where(params[:id])
+    @post = Post.find(params[:id])
     # binding.irb
     # firstがないと複数のモデルオブジェクトを返すため受け取る側のhtmlでエラーとなる。
     # firstにすることでオブジェクトを１件のみ返す。

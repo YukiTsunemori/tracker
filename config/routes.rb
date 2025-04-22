@@ -16,9 +16,7 @@ Rails.application.routes.draw do
   delete "/logout",  to: "sessions#destroy"
 
   # workspaces contoroller
-  get    "workspace_index",    to: "workspaces#index"
-  # get    "post",               to: "posts#show"
-  # get    "edit_post",               to: "posts#edit"
+  get    "/index",    to: "workspaces#index"
   resources :workspaces, except: [:index]
   
   # posts controller
