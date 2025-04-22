@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_17_110110) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_18_091159) do
   create_table "participants", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "workspace_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_110110) do
     t.integer "workspace_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "resolve", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index ["workspace_id"], name: "index_posts_on_workspace_id"
   end

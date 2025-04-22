@@ -11,5 +11,11 @@ module WorkspacesHelper
     # シンプルな空の配列にはexists?メソッドは使えない（SQL文ではない）のでメソッドエラーとなる。
   end
 
+  def workspace_id
+    @workspace = Workspace.where(user_id: current_user_id)
+    @workspace_id = @workspace.ids
+       
+  end
+
 
 end

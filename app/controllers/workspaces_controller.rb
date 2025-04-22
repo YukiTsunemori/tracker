@@ -10,8 +10,10 @@ class WorkspacesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
-    
   end
 
   def create

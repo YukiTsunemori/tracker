@@ -11,9 +11,7 @@
         <%= link_to "New workspace", new_workspace_path, class: "btn btn-primary btn-lg" %>
         <% if exist? %>
         <%# binding.irb %>
-        <%= link_to "Index workspaces", index_path, class: "btn btn-primary btn-lg" %>
-        <% else %>
-        
+        <%= link_to "Index workspaces", workspace_index_path, class: "btn btn-primary btn-lg" %>
         <% end %>
        
     </div>

@@ -1,13 +1,12 @@
 <div class="">
     <% @workspaces.each do |w| %>
        <ol>
-        <a href="/home" style="background-color: red;">
         <%= image_tag('person-workspace.svg', width: 100, height: 100) %>
         <li><%= "Name: #{w.name}" %></li>
         <li><%= "Organizer: #{w.creator}" %></li>
         <p>---------------------------------------</p>
-        </a>
        </ol>
     <% end %>
+    <%# link_to "workspace", workspace_path  %>
     
 </div>

@@ -1,0 +1,14 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_with(model: @post) do |f| %>
+    <h1>Editing</h1>
+
+      <%= f.label :Content %>
+      <%= f.text_field :Content, class: 'form-control' %>
+
+      <%= f.submit "Save Changes", class: "btn btn-primary mt-3"%>
+    <% end %>
+  </div>
+</div>
