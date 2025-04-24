@@ -8,7 +8,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    id = @post.id
+    post_id = @post.id
+    reply_msg_exist?(post_id)
+    @reply_msgs =!ReplyMessage.find_by(post_id: post_id)
+    
+    # binding.irb
     # firstがないと複数のモデルオブジェクトを返すため受け取る側のhtmlでエラーとなる。
     # firstにすることでオブジェクトを１件のみ返す。
   end

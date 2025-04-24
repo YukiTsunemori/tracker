@@ -2,23 +2,22 @@
   <div class="col-md-6 col-md-offset-3">
       <h1>Please sign in</h1>
       <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-      <div class="row">
+      
+
         <%= f.label :Email %>
         <%= f.email_field :email, class: "form_control" %>
-      </div>
-      <div class="row">
+
         <%= f.label :password %>
         <%= f.password_field :password, class: "form_control" %>
-
-      <div class="form-check text-start my-3">
+        
         <%= f.label :remember_me, class: "checkbox inline" do %>
           <%= f.check_box :remember_me %>
           Remember me
           <% end %>
-  
-      </div>
         <%= f.submit "Log In", class: "btn btn-primary" %>
         <% end %>
         <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-</div>
+
+
+  </div>
 </div>

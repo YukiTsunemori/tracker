@@ -1,7 +1,7 @@
 module WorkspacesHelper
 
   def current_user_id
-  current_user.id
+    current_user.id
   end
 
   def exist?

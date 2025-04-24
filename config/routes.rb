@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   
   # posts controller
   resources :posts
+  resources :reply_messages
 
 end
