@@ -4,16 +4,14 @@ class WorkspacesController < ApplicationController
       user_id = session[:user_id]
       # binding.irb
       @workspaces = Workspace.joins(:user).select("users.name as creator, workspaces.name, workspaces.id").where(user_id: user_id)
-      # binding.irb
-    else
-      
+           
     end
   end
 
   def show
     # binding.irb
     @post = Post.where(workspace_id: params[:id])
-    # @workspace = Workspace.find_by(id: workspace_id)
+    
     # binding.irb
   end
 

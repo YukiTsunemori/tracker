@@ -1,4 +1,5 @@
 module PostsHelper
-  include WorkspacesHelper
-
+  def reply_msg_exist?
+    
+  end
 end
