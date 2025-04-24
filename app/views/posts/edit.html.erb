@@ -14,22 +14,30 @@
     <%#= f. :resolve, class: 'form-control' %>
 
     <div class="mt-3">
-    <%= f.label :Resolve %>
+    <%= f.label :Status %>
     <%= f.select :resolve, [["Unsolve", "false"],["Resolve", "true"]], class: "mt-5" %>
     </div>
 
+    <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
+    <% end %>
+
     <div>
-      <% if reply_msg_exist? %>
-        <%= form_with model: @reply_messages, local: true do |msg| %>
-        <%= msg.label :text %>
-        <%= msg.text_area :reply_content, class: 'form-control', rows: "4" %>
+      <% %>
+      <% if reply_msg_exist?(@post) %>
+      <%# binding.irb%>
+        <% @reply_msg.each do |msg| %>
+        <%= msg.reply_content %>
+        <%= msg.created_at %>
         <% end %>
       <% end %>
     </div>
 
     <div>
-    <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
-    <% end %>
+      <%= form_with model: @reply_msgs, local: true do |msg| %>
+        <%= msg.label :text %>
+        <%= msg.text_area :reply_content, class: 'form-control', rows: "4" %>
+        <%= msg.submit "Reply", class: "btn btn-primary mt-3" %> 
+      <% end %>
     </div>
   </div>
 </div>
