@@ -10,7 +10,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     post_id = @post.id
     reply_msg_exist?(post_id)
-    @reply_msgs =!ReplyMessage.find_by(post_id: post_id)
+    # binding.irb
+    @reply_msgs = ReplyMessage.new
     
     # binding.irb
     # firstがないと複数のモデルオブジェクトを返すため受け取る側のhtmlでエラーとなる。
