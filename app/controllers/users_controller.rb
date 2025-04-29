@@ -20,9 +20,11 @@ class UsersController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
+    
   end
 
   def edit
+   
   end
 
   def update

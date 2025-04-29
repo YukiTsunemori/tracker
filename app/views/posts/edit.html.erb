@@ -2,6 +2,7 @@
   <div class="col-md-6 col-md-offset-3">
     <h1>Edit comment</h1>
 
+
     <%= form_with model: @post, local: true do |f| %>
     <%# binding.irb %>
     <%= f.label :title_name %>
@@ -15,7 +16,7 @@
 
     <div class="mt-3">
     <%= f.label :Status %>
-    <%= f.select :resolve, [["Unsolve", "false"],["Resolve", "true"]], class: "mt-5" %>
+    <%= f.select :resolve, [["Unresolve", "false"],["Resolve", "true"]], class: "mt-5" %>
     </div>
 
     <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
@@ -24,19 +25,21 @@
     <div>
       <% %>
       <% if reply_msg_exist?(@post) %>
-      <%# binding.irb%>
+      <ul>
         <% @reply_msg.each do |msg| %>
-        <%= msg.reply_content %>
-        <%= msg.created_at %>
+        <li><%= msg.reply_content %>:<%= msg.created_at %></li>
         <% end %>
       <% end %>
+      </ul>
     </div>
 
     <div>
       
       <%= form_with model: @reply_msgs, local: true do |msg| %>
+        <%= msg.hidden_field :id, value: @reply_msgs.id %>
+        <%= msg.hidden_field :post_id, value: @reply_msgs.post_id %>
         <%= msg.label :text %>
-        <%= msg.text_area :reply_content, class: 'form-control', rows: "4" %>
+        <%= msg.text_area :reply_content, class: 'form-control', rows: "4"%>
         <%= msg.submit "Reply", class: "btn btn-primary mt-3" %> 
       <% end %>
     </div>

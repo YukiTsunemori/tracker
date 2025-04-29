@@ -1,4 +1,13 @@
-<div class="content">
+<div class="col-md-6 col-md-offset-3">
+ 
+  <%= form_with model: @new_post, local: true do |post| %>
+  <%= post.hidden_field :workspace_id, value: @new_post.workspace_id %>
+  <%= post.label :Title %>
+  <%= post.text_field :title_name, class: 'form_control' %>
+  <%= post.label :Text %>
+  <%= post.text_area :parent_content, class: 'form_control', rows: "7" %>
+  <%= post.submit "Create", class: "btn btn-primary mt-3" %>
+  <% end %>
   <ul>
     <% @post.each do |post| %>
       <li>
@@ -10,7 +19,10 @@
         <div>
         
         <%= link_to "Edit post", edit_post_path(post), class: "btn btn-primary mt-3" %>
-        <% %>
+        <% if current_user.admin?%>
+        <%= link_to "Delete post", post, data:{"turbo-method": :delete,
+                                          turbo_confirm: "You sure?"}, class: "btn btn-primary mt-3" %>
+        <% end %>                                  
         </div>
       </li>
     <% end %>

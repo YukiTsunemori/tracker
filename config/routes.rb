@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "reply_messages/create"
   # staticpages controller
   root "static_pages#home"
   get    "/home",    to: 'static_pages#home'

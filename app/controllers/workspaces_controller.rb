@@ -11,7 +11,9 @@ class WorkspacesController < ApplicationController
   def show
     # binding.irb
     @post = Post.where(workspace_id: params[:id])
-    
+    @new_post = Post.new
+    # binding.irb
+    @new_post.workspace_id = params[:id]
     # binding.irb
   end
 
@@ -44,4 +46,6 @@ class WorkspacesController < ApplicationController
     def workspace_params
       params.require(:workspace).permit(:name)
     end
+
+  
 end
