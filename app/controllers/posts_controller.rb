@@ -46,9 +46,11 @@ class PostsController < ApplicationController
 
   def destroy
     # binding.irb
-    Post.find(params[:id]).destroy
+    @post = Post.find(params[:id])
+    id = @post.workspace_id
+    @post.destroy
     flash[:success] = "Post deleted"
-    redirect_to workspace_path
+    redirect_to workspace_path(id)
 
   end
 

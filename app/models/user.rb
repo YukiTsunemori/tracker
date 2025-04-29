@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :workspaces
+  has_many :workspaces, dependent: :destroy
+  
 
   attr_accessor :remember_token
   # @remember_tokenにアクセスできるようにする。

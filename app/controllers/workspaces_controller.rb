@@ -4,7 +4,7 @@ class WorkspacesController < ApplicationController
       user_id = session[:user_id]
       # binding.irb
       @workspaces = Workspace.joins(:user).select("users.name as creator, workspaces.name, workspaces.id").where(user_id: user_id)
-           
+     
     end
   end
 
@@ -38,7 +38,12 @@ class WorkspacesController < ApplicationController
     end
   end
 
-  def update
+  def destroy
+    # binding.irb
+    Workspace.find(params[:id]).destroy
+
+    flash[:success] = "Workspace deleted"
+    redirect_to index_path
 
   end
 

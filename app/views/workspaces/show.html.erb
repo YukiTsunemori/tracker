@@ -1,30 +1,47 @@
-<div class="col-md-6 col-md-offset-3">
- 
-  <%= form_with model: @new_post, local: true do |post| %>
-  <%= post.hidden_field :workspace_id, value: @new_post.workspace_id %>
-  <%= post.label :Title %>
-  <%= post.text_field :title_name, class: 'form_control' %>
-  <%= post.label :Text %>
-  <%= post.text_area :parent_content, class: 'form_control', rows: "7" %>
-  <%= post.submit "Create", class: "btn btn-primary mt-3" %>
-  <% end %>
-  <ul>
-    <% @post.each do |post| %>
-      <li>
-        <strong>ID:         </strong> <%= post.id %><br>
-        <strong>Title:      </strong> <%= post.title_name %><br>
-        <strong>Content:    </strong> <%= post.parent_content %><br>
-        <strong>Updated at: </strong> <%= post.updated_at.strftime("%Y-%m-%d %H:%M") %><br>
-        <strong>Created at: </strong> <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-        <div>
-        
-        <%= link_to "Edit post", edit_post_path(post), class: "btn btn-primary mt-3" %>
-        <% if current_user.admin?%>
-        <%= link_to "Delete post", post, data:{"turbo-method": :delete,
-                                          turbo_confirm: "You sure?"}, class: "btn btn-primary mt-3" %>
-        <% end %>                                  
-        </div>
-      </li>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+
+    <%= form_with model: @new_post, local: true do |f| %>
+      <%= f.hidden_field :workspace_id, value: @new_post.workspace_id %>
+
+      <div class="mb-3">
+        <%= f.label :title_name, "Title" %>
+        <%= f.text_field :title_name, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :parent_content, "Text" %>
+        <%= f.text_area :parent_content, class: 'form-control', rows: 7 %>
+      </div>
+
+      <%= f.submit "Create", class: "btn btn-primary w-100" %>
     <% end %>
-  </ul>
+
+    <hr class="my-5">
+
+    <% @post.each do |p| %>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Title: <%= p.title_name %></h5>
+          <p class="card-text">Text: <%= simple_format(p.parent_content) %></p>
+
+          <p class="text-muted small">
+            Updated at: <%= p.updated_at.strftime("%Y-%m-%d %H:%M") %><br>
+            Created at: <%= p.created_at.strftime("%Y-%m-%d %H:%M") %>
+          </p>
+
+          <div class="d-flex gap-2 mt-3">
+            <%= link_to "Edit", edit_post_path(p), class: "btn btn-outline-primary btn-sm" %>
+
+            <% if current_user.admin? %>
+              <%= link_to "Delete", p, 
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
+                    class: "btn btn-outline-danger btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>

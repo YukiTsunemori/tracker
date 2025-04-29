@@ -19,6 +19,9 @@ module Tracker
     # config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
     config.time_zone = 'Tokyo'
     config.assets.enabled = true
+    # config/application.rb または config/environments/development.rb に追加
+    
+
   end
 
 

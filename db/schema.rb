@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_28_071914) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_29_075215) do
   create_table "participants", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "workspace_id", null: false
@@ -65,8 +65,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_28_071914) do
   add_foreign_key "participants", "users"
   add_foreign_key "participants", "workspaces"
   add_foreign_key "posts", "users"
-  add_foreign_key "posts", "workspaces"
-  add_foreign_key "reply_messages", "posts"
+  add_foreign_key "posts", "workspaces", on_delete: :cascade
+  add_foreign_key "reply_messages", "posts", on_delete: :cascade
   add_foreign_key "reply_messages", "users"
   add_foreign_key "workspaces", "users"
 end
